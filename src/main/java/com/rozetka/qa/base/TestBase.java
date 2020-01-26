@@ -1,11 +1,9 @@
 package com.rozetka.qa.base;
 
 import com.rozetka.qa.util.TestUtil;
-import org.apache.commons.math3.stat.inference.TestUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.FindBy;
 
 
 import java.io.FileInputStream;
@@ -37,17 +35,17 @@ public class TestBase {
 
     public static void initialization() {
 
-            System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
-            driver = new ChromeDriver();
-
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
+        driver = new ChromeDriver();
+        driver.get(prop.getProperty("url"));
+        driver.findElement(By.xpath("//span[@class='exponea-close-cross']")).click();
 
 
         driver.manage().window().maximize();
-        driver.manage().deleteAllCookies();
+        //driver.manage().deleteAllCookies();
         driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 
-        driver.get(prop.getProperty("url"));
 
     }
 
