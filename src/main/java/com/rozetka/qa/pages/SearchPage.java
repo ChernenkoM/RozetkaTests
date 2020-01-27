@@ -19,7 +19,6 @@ public class SearchPage extends TestBase {
     }
 
     public SearchPage search() {
-
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", search_field);
         search_field.sendKeys("PS4", Keys.ENTER);
         result_of_search.click();

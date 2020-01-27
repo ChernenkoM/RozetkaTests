@@ -24,7 +24,6 @@ public class TestBase {
             FileInputStream ip = new FileInputStream("/home/mykola/IdeaProjects/RozetkaTests/src/main/java/com/rozetka/" +
                     "qa/config/config.properties");
             prop.load(ip);
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException er) {
@@ -39,8 +38,6 @@ public class TestBase {
         driver = new ChromeDriver();
         driver.get(prop.getProperty("url"));
         driver.findElement(By.xpath("//span[@class='exponea-close-cross']")).click();
-
-
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);

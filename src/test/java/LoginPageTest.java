@@ -21,16 +21,15 @@ public class LoginPageTest extends TestBase {
         loginPageObject = new LoginPage();
     }
 
-    @Test(priority = 1)
+    @Test
     public void log_page_title_test() {
         String title = driver.getTitle();
         assertThat(title.contains("Интернет-магазин ROZETKA™: официальный сайт самого популярного онлайн-гипермаркета в Украине"));
     }
 
-    @Test(priority = 2)
+    @Test
     public void login_form_test() {
         loginPageObject.login(prop.getProperty("username"), prop.getProperty("password"));
-
         assertThat(driver.getPageSource().contains("Микола Черненко"));
     }
 
